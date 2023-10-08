@@ -68,12 +68,12 @@ import  {
   Image,
   PaginationControlled,
   Header,
-}from "../components/muiExportComponent/MuiForpage";
+}from "../../components/muiExportComponent/MuiForpage";
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { Database } from '@/types/database';
 import { cookies } from 'next/headers'
 import SnackComponent from '@/components/SnackComponent';
-import Bodypage from '@/components/body/BodyComponent';
+import Bodypage2 from '@/components/body/BodyComponent2';
 
 
 
@@ -85,7 +85,10 @@ export default async function page() {
   } = await supabase.auth.getSession()
  
   return (
-    <Bodypage session={session}  />
+    <>
+    
+    <Bodypage2 session={session}  />
+    </>
  
   );
 }
