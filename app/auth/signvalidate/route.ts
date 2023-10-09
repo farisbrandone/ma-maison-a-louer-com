@@ -30,11 +30,11 @@ export async function POST(request: Request) {
     )
   }
 
- /*  return NextResponse.redirect(
-    `${requestUrl.origin}/authentification_user/userupdate?loading=true&message=Mettez à jour vos données utilisateur`,
+  return NextResponse.redirect(
+    `${requestUrl.origin}/authentification_user/signvalidate?loading=true&message=Un email de vérification vous à été envoyé, allez et cliquer sur le lien pour mettre a jour le mot de passe`,
     {
       // a 301 status is required to redirect from a POST to a GET route
       status: 301,
     }
-  ) */
+  ) 
 }
