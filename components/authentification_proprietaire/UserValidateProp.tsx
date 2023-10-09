@@ -157,7 +157,10 @@ function UserValidateProp() {
             ) : null}
           </Stack>
 
-          <TextField
+          {
+            !searchParams.get("message")?(
+                <>
+                 <TextField
             fullWidth
             id="email"
             name="email"
@@ -177,6 +180,9 @@ function UserValidateProp() {
           >
             {"Envoyer"}
           </Button>
+                </>
+            ):null
+          }
         </Stack>
       </form>
     </Box>

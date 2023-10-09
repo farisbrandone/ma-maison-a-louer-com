@@ -9,8 +9,12 @@ import {
   Button,
   FormControl,
   FormControlLabel,
+  FormHelperText,
   FormLabel,
   IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
   Radio,
   RadioGroup,
   Stack,
@@ -20,6 +24,9 @@ import {
 import HouseIcon from "@mui/icons-material/House";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 export const dynamic = "force-dynamic";
 interface typeInitialValue {
   email: string;
@@ -71,7 +78,15 @@ function UserUpdateProp() {
   const loginParams = Boolean(searchParams.get("loading"));
   const message = searchParams.get("message");
   const router = useRouter();
+  const [confirmPassword, setConfirmPassword]=React.useState("")
+  const [trueConfirmation, setTrueConfirmation]=React.useState(false)
+  const [showPassword, setShowPassword] = React.useState(false);
 
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
   const formik = useFormik({
     //useformik return an object
     initialValues,
@@ -80,6 +95,18 @@ function UserUpdateProp() {
     validateOnChange: false,
     validateOnBlur: true,
   });
+  const  onchangePassword=(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{
+    e.preventDefault();
+    setConfirmPassword(e.target.value)
+  }
+  React.useEffect(() => {
+   if (confirmPassword===formik.values.password){
+    setTrueConfirmation(true)
+   }
+   else{
+    setTrueConfirmation(false)
+   }
+  }, [confirmPassword])
 
   console.log("form errors", formik.errors);
   return (
@@ -173,8 +200,59 @@ function UserUpdateProp() {
             error={formik.touched.email && Boolean(formik.errors.email)}
             helperText={formik.touched.email && formik.errors.email}
           />
+          <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-password"
+            name="password"
+            label="Password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            type={showPassword ? 'text' : 'password'}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+          <FormHelperText id="outlined-adornment-password">{formik.touched.password && formik.errors.password}</FormHelperText>
+        </FormControl>
 
-          <TextField
+
+        <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-password"
+            label="Confirm your password"
+            value={confirmPassword}
+            onChange={(e)=>onchangePassword(e)}
+            type={showPassword ? 'text' : 'password'}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+          <FormHelperText id="outlined-adornment-password" style={{color:(trueConfirmation && confirmPassword!=="")?"#0bee5b":"#9a0707"}} >{(trueConfirmation)?"mots de passe confirmé":(!trueConfirmation && confirmPassword!=="")?"mots de passe non confirmé":""}</FormHelperText>
+        </FormControl>
+
+          {/* <TextField
             fullWidth
             type="password"
             id="password"
@@ -185,7 +263,7 @@ function UserUpdateProp() {
             onBlur={formik.handleBlur}
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && formik.errors.password}
-          />
+          /> */}
 
           <Button
             variant="contained"

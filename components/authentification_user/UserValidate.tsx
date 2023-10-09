@@ -158,8 +158,10 @@ function UserValidate() {
               ) : null
             ) : null}
           </Stack>
-
-          <TextField
+          {
+            !searchParams.get("message")?(
+                <>
+                 <TextField
             fullWidth
             id="email"
             name="email"
@@ -179,6 +181,10 @@ function UserValidate() {
           >
             {"Envoyer"}
           </Button>
+                </>
+            ):null
+          }
+         
         </Stack>
       </form>
     </Box>

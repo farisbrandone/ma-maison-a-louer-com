@@ -193,7 +193,9 @@ function UserSignup() {
             ) : null}
           </Stack>
 
-          <TextField
+          {!searchParams.get("message")?(
+                 <>
+                   <TextField
             fullWidth
             id="email"
             name="email"
@@ -257,9 +259,11 @@ function UserSignup() {
           />
           <FormHelperText id="outlined-adornment-password" style={{color:(trueConfirmation && confirmPassword!=="")?"#0bee5b":"#9a0707"}} >{(trueConfirmation)?"mots de passe confirmé":(!trueConfirmation && confirmPassword!=="")?"mots de passe non confirmé":""}</FormHelperText>
         </FormControl>
+                 </>   
+          ):null
+          }
 
-
-
+      
 
          {/*  <TextField
             fullWidth
@@ -286,7 +290,7 @@ function UserSignup() {
             variant="contained"
             color="primary"
             type="submit"
-            disabled={formik.isSubmitting || !formik.isValid || loginParams || trueConfirmation}
+            disabled={formik.isSubmitting || !formik.isValid || loginParams|| !trueConfirmation}
           >
             {"S'inscrire"}
           </Button>
