@@ -302,7 +302,7 @@ console.log(image)
               flexGrow: 1,
               color: "black",
               fontSize: { xs: "14px", md: "16px", lg: "18px" },
-              width:{ /* xs: "50px", */ md:"100%",xs: "10px", },
+              width:{ /* xs: "50px", */ md:"100%",xs: "0px", },
               overflow:{ xs: "visible"},
               display: "flex",
               justifyContent: "center",

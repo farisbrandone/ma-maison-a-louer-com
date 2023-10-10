@@ -104,7 +104,7 @@ export async function POST(request: Request) {
   }
 
   return NextResponse.redirect(
-    `${requestUrl.origin}?message=Vos données ont été envoyé avec success, vous pouvez faire un filtrage des données pour vous rassurer de la présence de votre offre.`,
+    `${requestUrl.origin}/gotohomepage?message=Vos données ont été envoyé avec success, vous pouvez faire un filtrage des données pour vous rassurer de la présence de votre offre.`,
     {
       // a 301 status is required to redirect from a POST to a GET route
       status: 301,

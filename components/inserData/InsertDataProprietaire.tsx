@@ -178,7 +178,7 @@ const CDNURL =
 
     // Turn into Blob
     const blob:Blob = await new Promise((resolve) =>
-    canvas.toBlob(resolve, type, quality)
+    canvas.toBlob((blob)=>{if (blob) resolve(blob)}, type, quality)
 );
 
 // Turn Blob into File
@@ -1281,6 +1281,7 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
                       <TextField
                         id="devise"
                         name="devise"
+                        placeholder="fcfa"
                         select
                         value={formik.values.devise}
                         defaultValue="fcfa"
@@ -1305,7 +1306,7 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
 
               {/* montant pour achat */}
 
-              {formik.values.typeOffert === "Vente" ? (
+              {formik.values.typeOffert === "Vendre" ? (
                 <>
                   <Grid
                     item
@@ -1350,6 +1351,7 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
                       <TextField
                         id="devise"
                         name="devise"
+                        placeholder="fcfa"
                         select
                         value={formik.values.devise}
                         defaultValue="fcfa"
@@ -1412,6 +1414,10 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
                         formik.touched.typeDoffre && formik.errors.firstPayment
                       }
                       placeholder="Ex:2"
+
+                      InputProps={{
+                        startAdornment: <InputAdornment position="end">mois</InputAdornment>,
+                      }}
                     />
                   </Grid>
                 </>
@@ -1456,6 +1462,9 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
                         formik.touched.typeDoffre && formik.errors.caution
                       }
                       placeholder="Ex:2"
+                      InputProps={{
+                        startAdornment: <InputAdornment position="end">mois</InputAdornment>,
+                      }}
                     />
                   </Grid>
                 </>

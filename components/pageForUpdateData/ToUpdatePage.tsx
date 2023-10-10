@@ -174,8 +174,8 @@ const compressImage = async (file:File, { quality = 1, type = file.type }) => {
   ctx?.drawImage(imageBitmap, 0, 0, 380,350);
 
   // Turn into Blob
-  const blob:Blob = await new Promise((resolve) =>
-  canvas.toBlob(resolve, type, quality)
+  const blob:Blob  = await new Promise((resolve) =>
+  canvas.toBlob((blob)=>{ if (blob) resolve(blob)}, type, quality)
 );
 
 // Turn Blob into File
@@ -1096,7 +1096,7 @@ if (loading){
                     >
                       <FormControl sx={{ width: "100%" }}>
                         <InputLabel id="typeOffert">
-                          {" Acheter ou louer ?"}
+                          {" Vendre ou louer ?"}
                         </InputLabel>
                         <Select
                           labelId="typeOffert"
@@ -1357,7 +1357,7 @@ if (loading){
 
                       {/* montant pour achat */}
 
-                      {formik.values.typeOffert==="Vente"? (
+                      {formik.values.typeOffert==="Vendre"? (
                        <> 
                         <Grid
                       item
@@ -1401,6 +1401,7 @@ if (loading){
                       <TextField
                         id="devise"
                         name="devise"
+                        placeholder="fcfa"
                         select
                         value={formik.values.devise===""?formValues?.devise:formik.values.devise}
                         defaultValue="fcfa"

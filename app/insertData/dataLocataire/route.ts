@@ -46,7 +46,7 @@ export async function POST(request: Request) {
   }
 
   return NextResponse.redirect(
-    `${requestUrl.origin}?message=Vos données ont été envoyé avec success, vous serez notifier par mail si une offre correspond a vos besoinf`,
+    `${requestUrl.origin}/gotohomepage?message=Vos données ont été envoyé avec success, vous seriez notifier par mail si une offre correspond a vos besoins`,
     {
       // a 301 status is required to redirect from a POST to a GET route
       status: 301,

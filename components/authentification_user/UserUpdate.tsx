@@ -210,7 +210,7 @@ function UserUpdate() {
           />
 
 
-<FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+<FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -238,7 +238,7 @@ function UserUpdate() {
         </FormControl>
 
 
-        <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+        <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
