@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     data: { user },
   } = await supabase.auth.getUser();
   const email = user?.email;
-  console.log(email, name,address,radioOption,MontantApayer,localisationBien, devise)
+ 
   const { data, error } = await supabase
     .from("dataLocataire")
     .insert([
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     ]);
 
   if (error) {
-    console.log(requestUrl.origin);
+  
     return NextResponse.redirect(
       `${requestUrl.origin}/insertDataPage/pageForDataLocat?error=Problème rencontrer, réessayez svp`,
       {

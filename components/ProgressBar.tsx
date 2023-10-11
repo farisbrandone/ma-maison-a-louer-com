@@ -44,7 +44,7 @@ export default function CircularWithValueLabel({setProgress,progress}:{setProgre
       clearInterval(timer);
     };
   }, []); */
-  console.log({progress})
+ 
 
   return <CircularProgressWithLabel value={progress} />;
 }

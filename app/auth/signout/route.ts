@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   const {
     data: { session },
   } = await supabase.auth.getSession()
-console.log(session)
+
   if (session) {
     await supabase.auth.signOut()
   }

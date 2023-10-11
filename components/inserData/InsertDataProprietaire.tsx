@@ -171,8 +171,8 @@ const CDNURL =
 
     // Draw to canvas
     const canvas = document.createElement('canvas');
-    canvas.width = 380;
-    canvas.height = 350;
+    canvas.width = 340;
+    canvas.height = 280;
     const ctx = canvas.getContext('2d');
     ctx?.drawImage(imageBitmap, 0, 0, 380,350);
 
@@ -202,9 +202,7 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
     onSubmitProps: FormikHelpers<typeInitialValue>
   ) => {
     const data = { ...values, ...{ imageFile: myImage } };
-    console.log("length of image is", data.imageFile.length);
-    console.log("values is", values);
-    console.log("onsubmitprops", onSubmitProps);
+   
     /*  navigate.push(`/insertData/dataPropietaire?imageFile=${myImage}`, ) */
     onSubmitProps.setSubmitting(false);
     /*  onSubmitProps.resetForm(); */
@@ -282,7 +280,7 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
       });
 
     if (data !== null) {
-      console.log(data);
+    
       setMyImage(data);
     } else {
       alert("Le chargement d'images à échouer, réessayez Svp");
@@ -297,7 +295,7 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
 
     try {
       setUploading(true);
-      console.log(uploading)
+     
       if (
         !event.target.files ||
         event.target.files.length === 0 ||
@@ -311,11 +309,11 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
         const fileLength=event.target.files.length
         const file = event.target.files[i];
         const fileExt = file.name.split(".").pop();
-        console.log(fileExt);
+       
         const filePath = `${uid}/${
           self.crypto.randomUUID() /* Math.random() */
         }.${fileExt}`;
-        console.log(filePath);
+       
         
         
         const compressedFile = await compressImage(file, {
@@ -328,7 +326,7 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
           .from("catalogue_images")
           .upload(filePath, compressedFile);
         if (data) {
-          console.log("gaga");
+        
          
           tableImage.push(data.path);
         } else {
@@ -339,7 +337,7 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
         } 
       }
 
-      console.log(tableImage);
+     
       /* formik.values.imageFile=tableImage */
       setMyImage((prevState) => [...prevState, ...tableImage]);
       formik.setFieldValue('imageFile', [...formik.values.imageFile,...tableImage])
@@ -347,7 +345,7 @@ function InsertDataProprietaire({ session }: { session: Session | null }) {
     } catch (error) {
       alert("Error uploading avatar!");
     } finally {
-      console.log(uploading)
+     
       setUploading(false);
     }
   };

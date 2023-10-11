@@ -32,13 +32,13 @@ export async function POST(request: Request) {
 
   const supabase = createRouteHandlerClient({ cookies });
   const imageFile=imageFiles[0]?.toString().split(",")
-  console.log(imageFile?.length);
+ 
   const {
     data: { user },
   } = await supabase.auth.getUser();
   const email = user?.email;
   if (email) {
-    console.log({
+   /*  console.log({
       nbreDeChambre,
       nbreDeCuisine,
       nbreDeSalon,
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
       telephoneNumber,
       email,
       devise,
-    });
+    }); */
   }
   const { data, error } = await supabase.from('tableDesOffres').insert([
     {

@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server'
 export const dynamic = 'force-dynamic'
 
 export async function POST(request: Request) {
-    console.log("my request is :",request)
+   
   const requestUrl = new URL(request.url)
   /* const {emails, passwords}=JSON.parse(request.) */
   const formData = await request.formData()

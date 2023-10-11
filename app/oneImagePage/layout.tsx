@@ -18,21 +18,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    <>
     
-      <div
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <ThemeRegistry>
-          {children}
-          <Footer />
-        </ThemeRegistry>
-      </div>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <ThemeRegistry>
+        {children}
+        <Footer />
+      </ThemeRegistry>
+    </div>
+  
+    </>
     
   );
 }

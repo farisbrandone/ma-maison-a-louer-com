@@ -17,7 +17,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 export default function SnackComponent() {
   const [open, setOpen] = React.useState(false);
   const searchParams = useSearchParams();
-  console.log(searchParams.get("message"))
+ 
   const handleClose = (
     event?: React.SyntheticEvent | Event,
     reason?: string

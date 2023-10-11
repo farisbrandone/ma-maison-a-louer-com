@@ -112,11 +112,11 @@ function UserSignup() {
    }
   }, [confirmPassword])
 
-  console.log("form errors", formik.errors);
+ 
   return (
     <Box
       sx={{
-        minWidth: { xs: "280px", sm: "500px", md: "600px" },
+        minWidth: { xs: "280px", sm: "350px", md: "450px" },
         minHeight: "500px",
         display: "flex",
         flexDirection: "column",
@@ -129,7 +129,7 @@ function UserSignup() {
     >
       <form
         style={{
-          minWidth: "400px",
+          minWidth: "300px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -137,7 +137,7 @@ function UserSignup() {
         method="post"
         action="/auth/signup"
       >
-        <Stack spacing={2} sx={{ width: "100%" }}>
+        <Stack spacing={2} sx={{ width:{ xs: "300px", sm: "350px", md: "400px" } }}>
           <Stack
             spacing={2}
             sx={{

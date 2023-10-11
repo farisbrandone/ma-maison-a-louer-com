@@ -241,7 +241,7 @@ const handleUpdate=()=>{
 }
 
 React.useEffect(() => {
-  console.log(controEffect)
+ 
   const body=[...props.selected]
   const data1=JSON.stringify(body)
   if (controEffect){
@@ -250,8 +250,7 @@ React.useEffect(() => {
         method:"POST",
         body:data1
       });
-     /*  const data = await response.json();
-      console.log(data) */
+    
     };
    
     fetchData();
@@ -366,7 +365,7 @@ export default function PageForUpdateData(props: DataForUpdateProps) {
         selected.slice(selectedIndex + 1)
       );
     }
-  console.log(newSelected)
+ 
     setSelected(newSelected);
   };
 

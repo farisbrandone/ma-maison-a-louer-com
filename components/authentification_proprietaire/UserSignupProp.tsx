@@ -108,7 +108,7 @@ function UserSignupProp() {
     setTrueConfirmation(false)
    }
   }, [confirmPassword])
-  console.log("form errors", formik.errors);
+  
   return (
     <Box
       sx={{

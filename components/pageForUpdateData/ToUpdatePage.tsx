@@ -168,8 +168,8 @@ const compressImage = async (file:File, { quality = 1, type = file.type }) => {
 
   // Draw to canvas
   const canvas = document.createElement('canvas');
-  canvas.width = 380;
-  canvas.height = 350;
+  canvas.width = 340;
+  canvas.height = 280;
   const ctx = canvas.getContext('2d');
   ctx?.drawImage(imageBitmap, 0, 0, 380,350);
 
@@ -201,15 +201,13 @@ function ToUpdatePage({ session }: { session: Session | null,}) {
   const searchParams = useSearchParams();
    const id1=searchParams.get("id")
   const id=id1?.slice(0,id1?.length-1)
-  console.log("id is :", id); 
+  
   const onSubmit = (
     values: typeInitialValue,
     onSubmitProps: FormikHelpers<typeInitialValue>
   ) => {
      const data = { ...values, ...{ imageFile: myImage } };
-    console.log("length of image is", data.imageFile.length); 
-      console.log("values is", values);
-    console.log("onsubmitprops", onSubmitProps); 
+    
    /*  navigate.push(`/insertData/dataPropietaire?imageFile=${myImage}`, ) */
     onSubmitProps.setSubmitting(false);
    /*  onSubmitProps.resetForm(); */
@@ -288,11 +286,11 @@ function ToUpdatePage({ session }: { session: Session | null,}) {
                     } )
 
           if (data!==null){
-            console.log(data)
+           
             setMyImage(data)
           } else{
             alert("Le chargement d'images à échouer, réessayez Svp")
-            console.log(error)
+           
           }
   }, [uid]
 )
@@ -311,16 +309,16 @@ function ToUpdatePage({ session }: { session: Session | null,}) {
              
         const file = event.target.files[i]
         const fileExt = file.name.split('.').pop()
-        console.log(fileExt)
+       
         const filePath = `${uid}/${self.crypto.randomUUID()/* Math.random() */}.${fileExt}`
-        console.log(filePath)
+        
         const compressedFile = await compressImage(file, {
           quality: 0.6,
           type: 'image/jpeg',
       });
         let {data, error: uploadError } = await supabase.storage.from('catalogue_images').upload(filePath, compressedFile)
          if(data){
-          console.log("gaga")
+         
           /* getImage() */
           tableImage.push(data.path);
          
@@ -332,7 +330,7 @@ function ToUpdatePage({ session }: { session: Session | null,}) {
       
       }
       
-      console.log(tableImage)
+     
       /* formik.values.imageFile=tableImage */
       setMyImage((prevState) => [...prevState, ...tableImage]);
        initialValues={...initialValues, imageFile:[...tableImage]}

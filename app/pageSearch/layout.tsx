@@ -19,15 +19,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr">
-      <body>
-
+    <>
+    {/* <html lang="fr">
+      <body> */}
       <ThemeRegistry>
       {children}
        <Footer/> 
       </ThemeRegistry>
-      </body>
+      </>
+     /*  </body>
      
-    </html>
+    </html> */
   )
 }

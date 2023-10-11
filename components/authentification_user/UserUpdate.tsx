@@ -116,7 +116,7 @@ function UserUpdate() {
   }, [confirmPassword])
 
 
-  console.log("form errors", formik.errors);
+ 
   return (
     <Box
       sx={{

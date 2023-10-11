@@ -28,6 +28,7 @@ import {
 } from "next/navigation";
 import { Theme, useTheme, createTheme } from "@mui/material/styles";
 import LoadingPage from "../LoadingPage";
+import Masonry from "@mui/lab/Masonry";
 
 type ImageType = {
   /*  image: Blob; */
@@ -89,20 +90,20 @@ let initialValues: typeInitialValue = {
 const CDNURL =
   "https://tkvtphatpjsobxkwbqmd.supabase.co/storage/v1/object/public/catalogue_images";
 
-const breakpoints = {
+/* const breakpoints = {
   xs: 380,
   sm: 800,
   md: 1200,
   lg: 1600,
   xl: 2000,
-};
+}; */
 
 /* const theme = createTheme({
   breakpoints: {
     values: { xs:0, sm:280, md: 600, lg:900, x  l:1200  }
   }
 }); */
-const widths =
+/* const widths =
   window.innerWidth < breakpoints.xs
     ? 1
     : window.innerWidth < breakpoints.sm
@@ -111,18 +112,18 @@ const widths =
     ? 3
     : window.innerWidth < breakpoints.lg
     ? 4
-    : 5;
+    : 5; */
 export default function Bodypage2({ session }: { session: Session | null }) {
   const [dataDisplay, setDataDisplay] = React.useState<dataRows>([]);
   const [loading, setLoading] = React.useState(true);
-  const [columns, setcolumns] = React.useState(widths);
+  /* const [columns, setcolumns] = React.useState(widths); */
   const [refresh, setRefresh] = React.useState(true);
   const searchParams: ReadonlyURLSearchParams = useSearchParams();
   const [payss, setPayss] = React.useState("");
   const [citys, setCitys] = React.useState("");
-  const [indexFirst, setIndexFirst]=React.useState(0)
-  const [indexLast, setIndexLast]=React.useState(2)
-  const [totalCount, setTotalCount]=React.useState(0)
+  const [indexFirst, setIndexFirst] = React.useState(0);
+  const [indexLast, setIndexLast] = React.useState(2);
+  const [totalCount, setTotalCount] = React.useState(0);
   const [page, setPage] = React.useState(1);
   const router = useRouter();
   const params = [];
@@ -136,10 +137,10 @@ export default function Bodypage2({ session }: { session: Session | null }) {
     keys.push(key);
     values.push(value);
   }
-  console.log(values);
+ 
   const supabase = createClientComponentClient<Database>();
   const theme = useTheme();
-  const getcolumns = (width: number) => {
+  /* const getcolumns = (width: number) => {
     if (width < breakpoints.xs) {
       return 1;
     } else if (width < breakpoints.sm) {
@@ -153,11 +154,11 @@ export default function Bodypage2({ session }: { session: Session | null }) {
     } else {
       return 6;
     }
-  };
+  }; */
 
-  const updatedimensions = () => {
+  /* const updatedimensions = () => {
     setcolumns(() => getcolumns(window.innerWidth));
-  };
+  }; */
   /*************************** useCallback part********************* */
 
   const getProfile = React.useCallback(async () => {
@@ -165,14 +166,19 @@ export default function Bodypage2({ session }: { session: Session | null }) {
 
     try {
       setLoading(true);
-      let query = supabase.from("tableDesOffres").select("*",{ count: 'exact' })
+      let query = supabase
+        .from("tableDesOffres")
+        .select("*", { count: "exact" });
       if (lengthKeys === 2) {
         setCitys(values[0]);
         setPayss(values[1]);
-        query = query.eq(keys[0], values[0]).eq(keys[1], values[1]).range(indexFirst,indexLast);
+        query = query
+          .eq(keys[0], values[0])
+          .eq(keys[1], values[1])
+          .range(indexFirst, indexLast);
       }
       if (lengthKeys === 1) {
-        query = query.eq(keys[0], values[0]).range(indexFirst,indexLast);
+        query = query.eq(keys[0], values[0]).range(indexFirst, indexLast);
       }
       if (lengthKeys === 3) {
         setCitys(values[0]);
@@ -180,7 +186,8 @@ export default function Bodypage2({ session }: { session: Session | null }) {
         query = query
           .eq(keys[0], values[0])
           .eq(keys[1], values[1])
-          .eq(keys[2], values[2]).range(indexFirst,indexLast);
+          .eq(keys[2], values[2])
+          .range(indexFirst, indexLast);
       }
 
       const { data, error, status, count } = await query;
@@ -190,13 +197,13 @@ export default function Bodypage2({ session }: { session: Session | null }) {
       }
       if (data && count) {
         if (data.length > 0) {
-          console.log(data);
+        
           setDataDisplay(data);
-          setTotalCount(count)
+          setTotalCount(count);
         } else {
-          console.log(data);
+         
           setDataDisplay(data);
-          setTotalCount(count)
+          setTotalCount(count);
           /* alert("Pas de données existant correspondant à votre recherche") */
         }
       }
@@ -205,16 +212,16 @@ export default function Bodypage2({ session }: { session: Session | null }) {
     } finally {
       setLoading(false);
     }
-  }, [supabase, indexFirst, indexLast,searchParams]);
+  }, [supabase, indexFirst, indexLast, searchParams]);
 
   /*************************** useCallback part********************* */
-  React.useEffect(() => {
-    /*  router.reload(); */
+   React.useEffect(() => {
+    
     getProfile();
-    window.addEventListener("resize", updatedimensions);
+   /*  window.addEventListener("resize", updatedimensions);
     console.log(columns);
-    return () => window.removeEventListener("resize", updatedimensions);
-  }, [getProfile, searchParams]);
+    return () => window.removeEventListener("resize", updatedimensions); */
+  }, [getProfile, searchParams]); 
 
   /*****************************colmun resize****************************** */
 
@@ -273,7 +280,8 @@ export default function Bodypage2({ session }: { session: Session | null }) {
             color="primary"
             textAlign="center"
           >
-            Aucune offre disponible pour votre demande ou Problème de connection . réessayez SVP...
+            Aucune offre disponible pour votre demande ou Problème de connection
+            . réessayez SVP...
           </Typography>
         </Box>
       </>
@@ -297,14 +305,28 @@ export default function Bodypage2({ session }: { session: Session | null }) {
           marginTop: "150px",
           marginBottom: "15px",
           padding: "0px 5px 0px 5px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "90px",
         }}
       >
-        <ImageList
+        {/* <ImageList
           sx={{ minWidth: "280px", margin: "100px 5px 60px 5px" }}
           cols={columns}
+        > */}
+        <Masonry
+          columns={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
+          spacing={{ xs: 1, sm: 2 }} /* sx={{marginBottom:"100px"}} */
         >
           {dataDisplay.map((item, index) => (
-            <ImageListItem key={index} sx={{cursor:"pointer"}} onClick={()=>{router.push(`/oneImagePage?value=${item.id}`)}} >
+            <ImageListItem
+              key={index}
+              sx={{ cursor: "pointer" }}
+              onClick={() => {
+                router.push(`/oneImagePage?value=${item.id}`);
+              }}
+            >
               <Image
                 src={item.imageFile ? `${CDNURL}/${item.imageFile[0]}` : "#"}
                 /* srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`} */
@@ -343,16 +365,18 @@ export default function Bodypage2({ session }: { session: Session | null }) {
               />
             </ImageListItem>
           ))}
-        </ImageList>
-        <PaginationControlled 
-        setIndexFirst={setIndexFirst} 
-        indexFirst={indexFirst}  
-        setIndexLast={setIndexLast}
-        indexLast={indexLast}
-        setTotalCount={setTotalCount}
-        totalCount={totalCount}
-        page={page}
-        setPage={setPage}
+        </Masonry>
+        
+        {/*  </ImageList> */}
+        <PaginationControlled
+          setIndexFirst={setIndexFirst}
+          indexFirst={indexFirst}
+          setIndexLast={setIndexLast}
+          indexLast={indexLast}
+          setTotalCount={setTotalCount}
+          totalCount={totalCount}
+          page={page}
+          setPage={setPage}
         />
       </div>
     </div>

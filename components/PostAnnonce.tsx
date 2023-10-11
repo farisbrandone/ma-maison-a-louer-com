@@ -27,8 +27,7 @@ const onSubmit = (
   values: typeInitialValue,
   onSubmitProps: FormikHelpers<typeInitialValue>
 ) => {
-  console.log("values is", values);
-  console.log("onsubmitprops", onSubmitProps);
+ 
   onSubmitProps.setSubmitting(false);
   onSubmitProps.resetForm();
 };
@@ -55,7 +54,7 @@ function PostAnnonce() {
       enableReinitialize
     >
       {(formik) => {
-        /*  console.log("formik props", formik); */
+       
         return (
           <Box
             sx={{

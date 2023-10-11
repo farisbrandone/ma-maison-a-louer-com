@@ -10,8 +10,7 @@ export async function POST(request: Request) {
   const email = String(formData.get('email'))
   const password = String(formData.get('password'))
   const supabase = createRouteHandlerClient({ cookies })
-  console.log("request.origin")
-  console.log("email is :", email)
+  
   const { error } = await supabase.auth.signUp({
     email,
     password,
@@ -21,7 +20,7 @@ export async function POST(request: Request) {
   })
 
   if (error) {
-    console.log(requestUrl.origin)
+   
     return NextResponse.redirect(
       `${requestUrl.origin}/authentification_user/user_signup?error=Problème rencontrer, réessayez svp`,
       {

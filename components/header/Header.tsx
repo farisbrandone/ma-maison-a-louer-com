@@ -62,7 +62,7 @@ function reducer<E extends null | HTMLElement>(
 ) {
   switch (action.type) {
     case "CHAMBRE":
-      console.log(action.payload);
+    
       return {
         anchorChambre: action.payload,
         anchorAppart: null,
@@ -155,7 +155,7 @@ const themes = createTheme({
   },
 });
 
-const widths =window.innerWidth
+const isBrowser = () => typeof window !== 'undefined';
 
 function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPayss}: 
   { session: Session | null,
@@ -243,14 +243,17 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
       /*  fetch(`/api/searchCountryCity?localisationVille=${city}&localisationPays=${pays}`) */
      }
  }
- window.addEventListener('scroll', function(e) {
-  const lastPosition = window.scrollY
-  if (lastPosition > 50 ) {
-   setDisplay("none")
-  }  else {
-   setDisplay("flex")
-  }
-})
+ if (isBrowser()) {
+
+   window.addEventListener('scroll', function(e) {
+    const lastPosition = window.scrollY
+    if (lastPosition > 50 ) {
+     setDisplay("none")
+    }  else {
+     setDisplay("flex")
+    }
+  })
+ }
 
  React.useEffect(() => {
      if (citys!=="" && payss!==""){
@@ -259,7 +262,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
      }
  }, [])
 
-console.log(image)
+
 
   return (
     <ThemeProvider theme={themes}>
@@ -342,7 +345,7 @@ console.log(image)
                 fontSize: { xs: "8px", sm: "10px", md: "11px", lg: "12px" },
               }}
                onClick={()=>{
-                console.log("blabla")
+               
                /*  router.push("/authentification_user") */}} 
             >
               <Link href="/authentification_user"  style={{textDecoration:"none", color:"white"}}>
@@ -615,7 +618,7 @@ console.log(image)
               labelId="select-country"
               id="demo-select-country"
               value={pays}
-              label="Select country"
+              label="Select pays"
               onChange={handleChangeCountry}
               MenuProps={MenuProps}
               style={{backgroundColor:"#ffffff"}}
@@ -666,7 +669,7 @@ console.log(image)
     {/* ...............choice of city..................... */}
     <FormControl sx={{ minWidth: 120, }} size="small">
                         <InputLabel id="select-city"  sx={{fontSize:{xs:"12px", sm:"14px", md: "15px",}}}>
-                          {"Select city"}
+                          {"Select Ville"}
                         </InputLabel>
                         <Select
                         style={{backgroundColor:"#ffffff"}}

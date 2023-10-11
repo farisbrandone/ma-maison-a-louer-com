@@ -33,7 +33,7 @@ export default function DialogButton(props:EnhancedTableToolbarProps) {
   }
 
   React.useEffect(() => {
-    console.log(controEffect)
+   
     const body=[...props.selected]
     const data1=JSON.stringify(body)
     if (controEffect){
@@ -43,7 +43,7 @@ export default function DialogButton(props:EnhancedTableToolbarProps) {
           body:data1
         });
         const data = await response.json();
-        console.log(data)
+       
       };
      
       fetchData();

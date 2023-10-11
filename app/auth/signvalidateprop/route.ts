@@ -9,8 +9,7 @@ export async function POST(request: Request) {
   const formData = await request.formData()
   const email = String(formData.get('email'))
   const supabase = createRouteHandlerClient({ cookies })
-  console.log("request.origin")
-  console.log("email is :", email)
+  
   const {data, error } = await supabase.auth.resetPasswordForEmail(
     email,
     {
@@ -19,7 +18,7 @@ export async function POST(request: Request) {
   )
 
   if (error) {
-    console.log(requestUrl.origin)
+   
     return NextResponse.redirect(
       `${requestUrl.origin}/authentification_proprietaire/signvalidate?error=Problème rencontrer, réessayez svp`,
       {

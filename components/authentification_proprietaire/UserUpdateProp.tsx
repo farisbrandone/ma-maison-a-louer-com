@@ -108,7 +108,7 @@ function UserUpdateProp() {
    }
   }, [confirmPassword])
 
-  console.log("form errors", formik.errors);
+ 
   return (
     <Box
       sx={{

@@ -20,15 +20,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr">
-      <body>
-
+   
+     <>
+     
       <ThemeRegistry>
       {children}
        <Footer/> 
       </ThemeRegistry>
-      </body>
+     </>
      
-    </html>
   )
 }

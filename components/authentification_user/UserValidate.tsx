@@ -78,7 +78,7 @@ function UserValidate() {
     validateOnBlur: true,
   });
 
-  console.log("form errors", formik.errors);
+ 
   return (
     <Box
       sx={{

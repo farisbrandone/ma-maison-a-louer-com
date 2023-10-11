@@ -21,7 +21,7 @@ import { useSearchParams } from 'next/navigation';
 import { Theme, useTheme,createTheme } from "@mui/material/styles";
 import LoadingPage from '../LoadingPage';
 import { useRouter } from 'next/navigation';
-
+import Masonry from '@mui/lab/Masonry';
 
 type ImageType = {
   /*  image: Blob; */
@@ -83,34 +83,49 @@ export type dataRows=Database["public"]["Tables"]["tableDesOffres"]["Row"][]
  };
  const CDNURL="https://tkvtphatpjsobxkwbqmd.supabase.co/storage/v1/object/public/catalogue_images"
 
- const breakpoints = {
-  xs: 380,
+ /* const breakpoints = {
+  xs: 400,
   sm: 800,
   md: 1200,
   lg: 1600,
   xl: 2000,
-};
-const widths =
-  window.innerWidth < breakpoints.xs
+}; */
+/* const widths =
+  window.screen.width  < breakpoints.xs
     ? 1
-    : window.innerWidth < breakpoints.sm
+    : window.screen.width  < breakpoints.sm
     ? 2
-    : window.innerWidth < breakpoints.md
+    : window.screen.width  < breakpoints.md
     ? 3
-    : window.innerWidth < breakpoints.lg
+    : window.screen.width  < breakpoints.lg
     ? 4
-    : 5;
+    : 5; */
 /* const theme = createTheme({
   breakpoints: {
     values: { xs:0, sm:280, md: 600, lg:900, x  l:1200  }
   }
 }); */
-
+/* const getcolumns = (width:number) => {
+  if (width < breakpoints.xs) {
+    return 1
+} 
+  else if (width < breakpoints.sm) {
+      return 2
+  } else if (width < breakpoints.md) {
+      return 3
+  } else if (width < breakpoints.lg) {
+      return 4
+  } else if (width < breakpoints.xl) {
+      return 5
+  } else {
+      return 6
+  }
+} */
 
 export default  function Bodypage({ session }: { session: Session | null }) {
   const [dataDisplay, setDataDisplay] = React.useState<dataRows>([])
   const [loading, setLoading] = React.useState(true)
-  const [columns, setcolumns] = React.useState(widths)
+  /* const [columns, setcolumns] = React.useState(widths) */
   const [refresh, setRefresh]=React.useState(true)
   const [payss, setPayss] = React.useState("");
   const [citys, setCitys] = React.useState("")
@@ -121,26 +136,11 @@ export default  function Bodypage({ session }: { session: Session | null }) {
   const supabase = createClientComponentClient<Database>()
   const router=useRouter()
   const theme = useTheme();
-  const getcolumns = (width:number) => {
-    if (width < breakpoints.xs) {
-      return 1
-  } 
-    else if (width < breakpoints.sm) {
-        return 2
-    } else if (width < breakpoints.md) {
-        return 3
-    } else if (width < breakpoints.lg) {
-        return 4
-    } else if (width < breakpoints.xl) {
-        return 5
-    } else {
-        return 6
-    }
-  }
+ 
   
-  const updatedimensions = () => {
+  /* const updatedimensions = () => {
     setcolumns(()=>getcolumns(window.innerWidth))
-  }
+  } */
 /*************************** useCallback part********************* */
 
 const getProfile = React.useCallback(async () => {
@@ -170,12 +170,12 @@ const getProfile = React.useCallback(async () => {
 
 
 /*************************** useCallback part********************* */
-React.useEffect(() => {
+ React.useEffect(() => {
   getProfile()
-   window.addEventListener("resize", updatedimensions);
+   /* window.addEventListener("resize", updatedimensions);
   console.log(columns)
-  return () => window.removeEventListener("resize", updatedimensions); 
-}, [getProfile])
+  return () => window.removeEventListener("resize", updatedimensions); */ 
+}, [getProfile]) 
 
 /*****************************colmun resize****************************** */
 
@@ -246,8 +246,10 @@ return (
     <div>
      <Header session={session} setDataDisplay={setDataDisplay} setRefresh={setRefresh} citys={citys} setCitys={setCitys} payss={payss} setPayss={setPayss} />
      <SnackComponent/>
-     <div  style={{ marginTop:"150px", marginBottom:"15px", padding:"0px 5px 0px 5px" }}>
-     <ImageList sx={{ minWidth:"280px",margin:"100px 5px 60px 5px"}} cols={columns} >
+     <div  style={{ marginTop:"150px", marginBottom:"15px", padding:"0px 5px 0px 5px", display:"flex", flexDirection:"column", alignItems:"center", gap:"90px" }}>
+      <Masonry columns={{xs:1, sm:2, md:3, lg:4, xl:5}} spacing={{xs:1, sm:2}} /* sx={{marginBottom:"100px"}} */ >
+
+     {/* <ImageList sx={{ minWidth:"280px",margin:"100px 5px 60px 5px"}} cols={columns} > */}
        {dataDisplay.map((item, index) => (
          <ImageListItem key={index} sx={{cursor:"pointer"}} onClick={()=>{router.push(`/oneImagePage?value=${item.id}`)}}>
            <Image
@@ -279,7 +281,8 @@ return (
 
          </ImageListItem>
        ))}
-     </ImageList>
+    {/*  </ImageList> */}
+      </Masonry>
      <PaginationControlled 
      setIndexFirst={setIndexFirst} 
      indexFirst={indexFirst}  
