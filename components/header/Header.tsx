@@ -611,7 +611,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
           sx={{ alignItems: "center", justifyContent: "center", marginBottom:"10px" }}
         >
           <FormControl sx={{ minWidth: 120, }} size="small">
-            <InputLabel id="select-country" sx={{fontSize:{xs:"12px", sm:"14px", md: "15px",}}}>Select country</InputLabel>
+            <InputLabel id="select-country" sx={{fontSize:{xs:"12px", sm:"14px", md: "15px",}}}>Select pays</InputLabel>
             <Select
             
               color="primary"
@@ -689,7 +689,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):null} 
                           {pays==="Burkina Faso"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -698,7 +698,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):null} 
                            {pays=== "Cameroun"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -707,7 +707,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):null} 
                           {pays==="Centrafrique"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -716,7 +716,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):null} 
                            {pays==="Congo Brazaville"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -725,7 +725,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):null} 
                           {pays==="Côte D'ivoire"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -734,7 +734,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):null} 
                           {pays==="Gabon"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -743,7 +743,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):null}
                           {pays==="Guinée"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -752,7 +752,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):null}
                           {pays==="Guinée équatoriale"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -761,7 +761,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):null}
                           {pays==="Mali"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -770,7 +770,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):null}
                            {pays==="Niger"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -779,7 +779,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):null}
                            {pays==="RDC"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -788,7 +788,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):null}
                           {pays==="Sénégal"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -797,7 +797,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):null}
                            {pays==="Tchad"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -806,7 +806,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):null}
                           {pays==="Togo"?(data[pays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -815,7 +815,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):null}
                         </Select>
                       </FormControl>
 

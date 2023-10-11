@@ -1614,7 +1614,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):(null)} 
                           {formik.values.localisationPays==="Burkina Faso"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1623,7 +1623,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):(null)} 
                            {formik.values.localisationPays=== "Cameroun"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1632,7 +1632,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):(null)} 
                           {formik.values.localisationPays==="Centrafrique"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1641,7 +1641,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):(null)} 
                            {formik.values.localisationPays==="Congo Brazaville"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1650,7 +1650,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):(null)} 
                           {formik.values.localisationPays==="Côte D'ivoire"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1659,7 +1659,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)} 
+                          ))):(null)} 
                           {formik.values.localisationPays==="Gabon"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1668,7 +1668,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):(null)}
                           {formik.values.localisationPays==="Guinée"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1677,7 +1677,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):(null)}
                           {formik.values.localisationPays==="Guinée équatoriale"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1686,7 +1686,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):(null)}
                           {formik.values.localisationPays==="Mali"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1695,7 +1695,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):(null)}
                            {formik.values.localisationPays==="Niger"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1704,7 +1704,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):(null)}
                            {formik.values.localisationPays==="RDC"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1713,7 +1713,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):(null)}
                           {formik.values.localisationPays==="Sénégal"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1722,7 +1722,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):(null)}
                            {formik.values.localisationPays==="Tchad"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1731,7 +1731,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):(null)}
                           {formik.values.localisationPays==="Togo"?(data[formik.values.localisationPays].map((name)=> (
                             <MenuItem
                               key={name}
@@ -1740,7 +1740,7 @@ if (loading){
                             >
                               {name}
                             </MenuItem>
-                          ))):(<MenuItem></MenuItem>)}
+                          ))):(null)}
                         </Select>
                       </FormControl>
                     </Grid>

@@ -19,7 +19,7 @@ const data = {
     ],
 
     Choisir_votre_pays: [
-        "Entrer une ville",
+        
     ],
     Togo: [
         "Lomé",
@@ -49,7 +49,6 @@ const data = {
     ],
 
     Cameroun: [
-        "Entrer une ville",
         "Abong-Mbang",
         "Akonolinga",
         "Bafang",
@@ -129,7 +128,6 @@ const data = {
 
     ],
     Centrafrique: [
-        "Entrer une ville",
         "Bangui",
         "Bimbo",
         "Berbérati",
@@ -169,7 +167,6 @@ const data = {
         "Obo",
     ],
     RDC: [
-        "Entrer une ville",
         "Kinshasa",
         "Mbujimayi",
         "Lubumbashi",
@@ -203,7 +200,6 @@ const data = {
     ],
 
    "Congo Brazaville": [
-        "Entrer une ville",
         " Brazzaville",
         "Pointe-Noire",
         "Dolisie",
@@ -221,7 +217,6 @@ const data = {
     ],
 
     Gabon: [
-        "Entrer une ville",
         "Libreville",
         " Port-Gentil",
         "Franceville",
@@ -258,7 +253,6 @@ const data = {
     ],
 
     "Guinée équatoriale": [
-        "Entrer une ville",
         "Bata",
         "Malabo",
         "Ebebiyín",
@@ -288,7 +282,6 @@ const data = {
     ],
 
     Tchad: [
-        "Entrer une ville",
         "N'Djaména",
         "Moundou",
         "Abeche",
@@ -333,7 +326,6 @@ const data = {
     ],
 
     Bénin: [
-        "Entrer une ville",
         "Cotonou",
         "Abomey-Calavi",
         "Porto-Novo",
@@ -372,7 +364,6 @@ const data = {
     ],
 
     "Burkina Faso": [
-        "Entrer une ville",
         "Ouagadougou",
         "Bobo dioulasso",
         "Koudougou",
@@ -386,7 +377,6 @@ const data = {
     ],
 
    "Côte D'ivoire": [
-        "Entrer une ville",
         "Abidjan",
         "Bouaké",
         "Daloa",
@@ -434,7 +424,6 @@ const data = {
     ],
 
     Guinée: [
-        "Entrer une ville",
         "Conakry",
         "Nzérékoré",
         "Kankan",
@@ -474,7 +463,6 @@ const data = {
     ],
 
     Mali: [
-        "Entrer une ville",
         "Bamako",
         "Sikasso",
         "Mopti",
