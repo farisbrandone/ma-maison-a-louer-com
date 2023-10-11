@@ -328,6 +328,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                 color: "#333333",
                 fontSize: { xs: "9px", sm: "11px", md: "12px", lg: "13px" },
                 border: "1px solid #333333",
+                fontWeight:600
               }}
               onClick={()=>{
                  router.push("/authentification_proprietaire") 
@@ -343,6 +344,7 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                 backgroundColor: "#1976d2",
                 color: "#f8f5f5",
                 fontSize: { xs: "8px", sm: "10px", md: "11px", lg: "12px" },
+                fontWeight:600
               }}
                onClick={()=>{
                
