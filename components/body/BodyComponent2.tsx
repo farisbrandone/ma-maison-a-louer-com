@@ -324,7 +324,7 @@ export default function Bodypage2({ session }: { session: Session | null }) {
               key={index}
               sx={{ cursor: "pointer" }}
               onClick={() => {
-                router.push(`/oneImagePage?value=${item.id}`);
+                router.push(`/api/oneimagePage?value=${item.id}`);
               }}
             >
               <Image
