@@ -5,6 +5,7 @@ import { Formik, Form, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { useSearchParams } from "next/navigation";
 import {
+  Avatar,
   Box,
   Button,
   FormControl,
@@ -129,6 +130,7 @@ function UserUpdate() {
         padding: "20px",
         backgroundColor: "#fefdfd",
         boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+        borderRadius:"20px",
       }}
     >
       <form
@@ -163,13 +165,16 @@ function UserUpdate() {
               }}
             >
               <IconButton
-                size="small"
-                edge="start"
-                aria-label="logo"
-                color="primary"
-              >
-                <HouseIcon />
-              </IconButton>
+            size="small"
+            edge="start"
+            aria-label="logo"
+            color="primary"
+            style={{ marginLeft:"10px"}}
+          >
+           <Avatar sx={{backgroundColor:"#333333"}} aria-label="recipe">
+             <HouseIcon />
+          </Avatar>
+          </IconButton>
               <Typography
                 variant="h6"
                 component="h6"
@@ -259,33 +264,8 @@ function UserUpdate() {
               </InputAdornment>
             }
           />
-          <FormHelperText id="outlined-adornment-password" style={{color:(trueConfirmation && confirmPassword!=="")?"#0bee5b":"#9a0707"}} >{(trueConfirmation)?"mots de passe confirmé":(!trueConfirmation && confirmPassword!=="")?"mots de passe non confirmé":""}</FormHelperText>
+          <FormHelperText id="outlined-adornment-password" style={{color:(trueConfirmation && confirmPassword!=="")?"#0bee5b":"#9a0707"}} >{(trueConfirmation && confirmPassword!=="")?"mots de passe confirmé":(!trueConfirmation && confirmPassword!=="")?"mots de passe non confirmé":""}</FormHelperText>
         </FormControl>
-
-
-
-
-
-         {/*  <TextField
-            fullWidth
-            type="password"
-            id="password"
-            name="password"
-            label="Password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.password && Boolean(formik.errors.password)}
-            helperText={formik.touched.password && formik.errors.password}
-          />
-           <TextField
-            fullWidth
-            type="password"
-            label="Confirm your password"
-            value={confirmPassword}
-            onChange={(e)=>onchangePassword(e)}
-            helperText={trueConfirmation?"mots de passe confirmé":"mots de passe non confirmé"}
-          /> */}
 
           <Button
             variant="contained"

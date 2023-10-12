@@ -130,7 +130,7 @@ export default  function Bodypage({ session }: { session: Session | null }) {
   const [payss, setPayss] = React.useState("");
   const [citys, setCitys] = React.useState("")
   const [indexFirst, setIndexFirst]=React.useState(0)
-  const [indexLast, setIndexLast]=React.useState(2)
+  const [indexLast, setIndexLast]=React.useState(11)
   const [totalCount, setTotalCount]=React.useState(0)
   const [page, setPage] = React.useState(1);
   const supabase = createClientComponentClient<Database>()
@@ -262,9 +262,9 @@ return (
              style={{ width:"100%", height:"100%",}}
            />
            <ImageListItemBar
-             title={item.typeDoffre?item.typeDoffre:"probleme de connection"}
-             subtitle={`${item.localisationQuartier!=="null"?item.localisationQuartier+"-":""}
-             ${item.localisationVille!=="null"?item.localisationVille+ "-":""}
+             title={item.typeDoffre?item.typeDoffre + " à " + item.typeOffert:"probleme de connection"}
+             subtitle={`${item.localisationQuartier!=="null"? " 🌍 "+item.localisationQuartier+" - ":""}
+             ${item.localisationVille!=="null"?item.localisationVille+ " - ":""}
              ${item.localisationPays!=="null"?item.localisationPays:""}
              `}
              

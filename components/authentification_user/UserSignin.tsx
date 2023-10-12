@@ -5,6 +5,7 @@ import { Formik, Form, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { useSearchParams } from "next/navigation";
 import {
+  Avatar,
   Box,
   Button,
   FormControl,
@@ -124,6 +125,7 @@ function UserSignin() {
         padding: "20px",
         backgroundColor: "#fefdfd",
         boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+        borderRadius:"20px",
       }}
     >
       <form
@@ -158,13 +160,16 @@ function UserSignin() {
               }}
             >
               <IconButton
-                size="small"
-                edge="start"
-                aria-label="logo"
-                color="primary"
-              >
-                <HouseIcon />
-              </IconButton>
+            size="small"
+            edge="start"
+            aria-label="logo"
+            color="primary"
+            style={{ marginLeft:"10px"}}
+          >
+           <Avatar sx={{backgroundColor:"#333333"}} aria-label="recipe">
+             <HouseIcon />
+          </Avatar>
+          </IconButton>
               <Typography
                 variant="h6"
                 component="h6"
@@ -255,17 +260,17 @@ function UserSignin() {
             /* disabled={formik.isSubmitting || !formik.isValid}  */
            /*  onClick={()=>router.push("/authentification_user/user_signup")} */
          >
-          <Link  href="/authentification_user/user_signup" style={{textDecoration:"none", color:"white"}}>
+          <Link  href="/api/signupuser" style={{textDecoration:"none", color:"white"}}>
           
             Inscription
           </Link>
           </Button>  
 
-          <Box sx={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", fontSize:"12px"}}>
+          <Box sx={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", fontSize:"12px", gap:"10px"}}>
             <Typography>
               Mot de passe oubliée
             </Typography>
-            <Link href="/authentification_user/signvalidate" >Cliquez ici</Link>
+            <Link href="/api/forgetuser" style={{fontSize:"12px"}}>Cliquez ici</Link>
           </Box>
 
         </Stack>

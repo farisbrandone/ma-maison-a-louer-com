@@ -340,16 +340,16 @@ export default function Bodypage2({ session }: { session: Session | null }) {
               />
               <ImageListItemBar
                 title={
-                  item.typeDoffre ? item.typeDoffre : "probleme de connection"
+                  item.typeDoffre ?item.typeDoffre + " à " + item.typeOffert : "probleme de connection"
                 }
-                subtitle={`${
+                subtitle={`${ " 🌍 "+
                   item.localisationQuartier !== "null"
-                    ? item.localisationQuartier + "-"
+                    ? item.localisationQuartier + " - "
                     : ""
                 }
              ${
                item.localisationVille !== "null"
-                 ? item.localisationVille + "-"
+                 ? item.localisationVille + " - "
                  : ""
              }
              ${item.localisationPays !== "null" ? item.localisationPays : ""}

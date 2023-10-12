@@ -5,6 +5,7 @@ import { Formik, Form, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { useSearchParams } from "next/navigation";
 import {
+  Avatar,
   Box,
   Button,
   FormControl,
@@ -121,6 +122,7 @@ function UserSignupProp() {
         padding: "20px",
         backgroundColor: "#fefdfd",
         boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+        borderRadius:"20px",
       }}
     >
       <form
@@ -155,13 +157,16 @@ function UserSignupProp() {
               }}
             >
               <IconButton
-                size="small"
-                edge="start"
-                aria-label="logo"
-                color="primary"
-              >
-                <HouseIcon />
-              </IconButton>
+            size="small"
+            edge="start"
+            aria-label="logo"
+            color="primary"
+            style={{ marginLeft:"10px"}}
+          >
+           <Avatar sx={{backgroundColor:"#333333"}} aria-label="recipe">
+             <HouseIcon />
+          </Avatar>
+          </IconButton>
               <Typography
                 variant="h6"
                 component="h6"
@@ -233,7 +238,7 @@ function UserSignupProp() {
 
 
         <FormControl sx={{ m: 1, width:'100%' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password"> Confirm Password</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             label="Confirm your password"
@@ -253,7 +258,7 @@ function UserSignupProp() {
               </InputAdornment>
             }
           />
-          <FormHelperText id="outlined-adornment-password" style={{color:(trueConfirmation && confirmPassword!=="")?"#0bee5b":"#9a0707"}} >{(trueConfirmation)?"mots de passe confirmé":(!trueConfirmation && confirmPassword!=="")?"mots de passe non confirmé":""}</FormHelperText>
+          <FormHelperText id="outlined-adornment-password" style={{color:(trueConfirmation && confirmPassword!=="")?"#0bee5b":"#9a0707"}} >{(trueConfirmation && confirmPassword!=="")?"mots de passe confirmé":(!trueConfirmation && confirmPassword!=="")?"mots de passe non confirmé":""}</FormHelperText>
         </FormControl>
                  </>   
           ):null

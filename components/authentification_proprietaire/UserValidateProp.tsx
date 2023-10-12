@@ -5,6 +5,7 @@ import { Formik, Form, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { useSearchParams } from "next/navigation";
 import {
+  Avatar,
   Box,
   Button,
   FormControl,
@@ -89,6 +90,7 @@ function UserValidateProp() {
         padding: "20px",
         backgroundColor: "#fefdfd",
         boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+        borderRadius:"20px",
       }}
     >
       <form
@@ -123,13 +125,16 @@ function UserValidateProp() {
               }}
             >
               <IconButton
-                size="small"
-                edge="start"
-                aria-label="logo"
-                color="primary"
-              >
-                <HouseIcon />
-              </IconButton>
+            size="small"
+            edge="start"
+            aria-label="logo"
+            color="primary"
+            style={{ marginLeft:"10px"}}
+          >
+           <Avatar sx={{backgroundColor:"#333333"}} aria-label="recipe">
+             <HouseIcon />
+          </Avatar>
+          </IconButton>
               <Typography
                 variant="h6"
                 component="h6"

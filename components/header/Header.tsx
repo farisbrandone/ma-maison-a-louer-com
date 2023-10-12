@@ -228,6 +228,14 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
     setCountries(typeof value === "string" ? value.split(",") : value);
   };
 
+  const authclick=()=>{
+      router.push("/api/postAnnonce")
+  }
+
+  const getclick=()=>{
+    router.push("/api/getAnnonce")
+}
+
  const handleSearchCountryCity= async ()=>{
      if (city==="" || pays===""){
       alert("Vous devez entrez les deux paramètres pays et ville")
@@ -330,11 +338,8 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                 border: "1px solid #333333",
                 fontWeight:600
               }}
-              onClick={()=>{
-                 router.push("/authentification_proprietaire") 
+              onClick={authclick}
                 
-                }
-                }
             >
              🔥 Poster des annonces
             </Button>
@@ -346,13 +351,9 @@ function Header({ session,setDataDisplay,setRefresh, citys,payss,setCitys, setPa
                 fontSize: { xs: "8px", sm: "10px", md: "11px", lg: "12px" },
                 fontWeight:600
               }}
-               onClick={()=>{
-               
-               /*  router.push("/authentification_user") */}} 
+               onClick={getclick} 
             >
-              <Link href="/authentification_user"  style={{textDecoration:"none", color:"white"}}>
-              {"get new post"}
-              </Link>
+              get new post 
             </Button>
            {/*  <Button
               variant="contained"

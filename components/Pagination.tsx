@@ -19,7 +19,7 @@ export default function PaginationControlled(
 ) {
   const [pages, setPages]=React.useState(1)
  
-  const numberPerPage=3
+  const numberPerPage=12
   const numberOfPage=totalCount%numberPerPage===0?totalCount/numberPerPage:(totalCount-(totalCount%numberPerPage))/numberPerPage+1
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
      setPage(value); 

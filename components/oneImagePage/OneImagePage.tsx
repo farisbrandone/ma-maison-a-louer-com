@@ -34,7 +34,9 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Image from "next/image";
 import HouseIcon from "@mui/icons-material/House";
 import LoadingPage2 from "../LoadingPage2";
-
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { grey as greys } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -131,7 +133,7 @@ export default function OneImagePage() {
       color="primary"
       textAlign="center"
     >
-      Vérifier votre connextion eet réessayez SVP...
+      Vérifier votre connextion et réessayez SVP...
     </Typography>
   </Box>
       )
@@ -199,7 +201,8 @@ export default function OneImagePage() {
         </Typography>
         
         <Typography variant="body1" >
-        {`${dataDisplay[0].localisationQuartier!=="null"?"🌍 " +dataDisplay[0].localisationQuartier+"-":""}
+          <LocationOnIcon  sx={{color:greys[800]}}  />
+        {`${dataDisplay[0].localisationQuartier!=="null"? dataDisplay[0].localisationQuartier+"-":""}
              ${dataDisplay[0].localisationVille!=="null"?dataDisplay[0].localisationVille+ "-":""}
              ${dataDisplay[0].localisationPays!=="null"?dataDisplay[0].localisationPays:""}
              `}    
@@ -218,6 +221,22 @@ export default function OneImagePage() {
         {`${dataDisplay[0].telephoneNumber!=="null"?"Tel: "+ dataDisplay[0].telephoneNumber:""}
              `}    
         </Typography>
+        <Typography variant="body1">
+            {`${dataDisplay[0].montantMensuel!=="null"?"📌 Montant mensuel :"+ dataDisplay[0].montantMensuel+` `+dataDisplay[0].devise+ " "+"/mois" :""}
+             `}  
+          </Typography>
+        <Typography variant="body1">
+            {`${dataDisplay[0].firstPayment!=="null"?"📌 Fournir pour le premier payment :"+ dataDisplay[0].firstPayment+` mois`:""}
+             `}  
+          </Typography>
+          <Typography variant="body1">
+            {`${dataDisplay[0].caution!=="null"?"📌 Caution :"+ dataDisplay[0].caution+` mois`:""}
+             `}  
+          </Typography>
+          <Typography variant="body1">
+            {`${dataDisplay[0].priceSale!=="null"?"📌 Prix de vente :"+ dataDisplay[0].priceSale+` `+ dataDisplay[0].devise:""}
+             `}  
+          </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
@@ -236,15 +255,8 @@ export default function OneImagePage() {
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent sx={{backgroundColor:"#771818", color:"#fff"}}>
-        <Typography paragraph>
-            {`${dataDisplay[0].firstPayment!=="null"?"📌 Fournir pour le premier payment :"+ dataDisplay[0].firstPayment+` mois`:""}
-             `}  
-          </Typography>
-          <Typography paragraph>
-            {`${dataDisplay[0].caution!=="null"?"📌 Caution :"+ dataDisplay[0].caution+` mois`:""}
-             `}  
-          </Typography>
+        <CardContent sx={{backgroundColor:"##616161", color:"#333333"}}>
+       
           <Typography paragraph>
             {`${dataDisplay[0].parking!=="null"?"📌 Présence d'un parking":""}
              `}  
@@ -255,6 +267,11 @@ export default function OneImagePage() {
           </Typography>
           <Typography paragraph>
           {`${dataDisplay[0].balcon!=="null"?"📌 Balcon disponible pour vos détentes":""}
+             `}  
+          </Typography>
+
+          <Typography paragraph>
+            {`${dataDisplay[0].description!=="null"?"📌 Autres caractéristique :"+ dataDisplay[0].description:""}
              `}  
           </Typography>
           
