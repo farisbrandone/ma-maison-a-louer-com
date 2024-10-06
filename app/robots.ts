@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://www.mamaisonalouer.com/sitemap.xml',
+    sitemap: 'https://ma-maison-a-louer-com.vercel.app/sitemap.xml',
   }
 }
