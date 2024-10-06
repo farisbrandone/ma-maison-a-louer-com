@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "insertion des donnée",
   description: "insérer des donnée associer à votre offre",
 };
+export const metadata2: Metadata = {
+   "google-adsense-account": "ca-pub-9175852038588591",
+}
 
 export default function RootLayout({
   children,
