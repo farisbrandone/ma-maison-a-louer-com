@@ -15,7 +15,8 @@ export const metadata: Metadata = {
   description: "chambre, appartement, studio, villa, boutique, magasin, chambre d'hotêl, terrain pour location et ventes sur mamaisonalouer.com ",
 }
 export const metadata2: Metadata = {
-   "google-adsense-account": "ca-pub-9175852038588591",
+   title: "google-adsense-account",
+    description: "ca-pub-9175852038588591",
 }
 
 export default function RootLayout({
