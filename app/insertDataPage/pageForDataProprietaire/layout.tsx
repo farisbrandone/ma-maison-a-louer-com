@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import ThemeRegistry from "@/components/themeRegistry/ThemeRegistry";
 import Favicon from "../../../public/favicon .ico"
+import Script from 'next/script'
 const inter = Inter({ subsets: ["latin"] });
 export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
@@ -27,6 +28,8 @@ export default function RootLayout({
           alignItems: "center",
         }}
       >
+        < Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9175852038588591"
+     crossOrigin="anonymous" strategy="afterInteractive" />
         <ThemeRegistry>
           {children}
           <Footer />
